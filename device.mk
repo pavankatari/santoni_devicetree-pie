@@ -125,6 +125,11 @@ PRODUCT_PACKAGES += \
     AntHalService \
     com.dsi.ant.antradio_library
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.audio.use.dts_eagle=true
+    use.dts_eagle=true
+    hpx_send_params=1
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbthost_if
