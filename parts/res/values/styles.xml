@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 The Mokee Project
+<!-- Copyright (C) 2014-2017 The OmniROM Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,4 +20,18 @@
 
     <style name="PreferenceTheme" parent="@style/PreferenceThemeOverlay.SettingsBase">
     </style>
+
+    <style name="Theme.Settings" parent="@android:style/Theme.Material.Settings">
+        <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
+        <item name="android:colorAccent">#ff4285f4</item>
+    </style>
+
+    <style name="Theme.ActionBar" parent="@android:style/Widget.DeviceDefault.Light.ActionBar.Solid">
+        <item name="android:titleTextStyle">@style/Theme.Actionbar.Title</item>
+    </style>
+
+    <style name="Theme.Actionbar.Title" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:textColor">#ff4285f4</item>
+    </style>
+
 </resources>
