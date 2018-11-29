@@ -151,6 +151,7 @@ VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
+<<<<<<< HEAD
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
@@ -158,6 +159,8 @@ TARGET_ENABLE_MEDIADRM_64 := true
 TARGET_QCOM_MEDIA_VARIANT := caf-msm8937
 TARGET_QCOM_DISPLAY_VARIANT := caf-msm8937
 
+=======
+>>>>>>> db28f40... santoni: BoardConfig: drop board media and display variant
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_CRYPTFS_HW_PATH ?= vendor/qcom/opensource/cryptfs_hw
