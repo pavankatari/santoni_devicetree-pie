@@ -38,39 +38,56 @@
 #include "vendor_init.h"
 #include "property_service.h"
 
-char const *heapstartsize;
-char const *heapgrowthlimit;
-char const *heapsize;
-char const *heapminfree;
-char const *heapmaxfree;
+typedef struct {
+    char const *heapstartsize;
+    char const *heapgrowthlimit;
+    char const *heapsize;
+    char const *heapminfree;
+    char const *heapmaxfree;
+} dalvikprop_t;
 
 void check_device()
 {
+=======
+static void property_override(char const prop[], char const value[]) {
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
+static void check_device(dalvikprop_t* dprop) {
     struct sysinfo sys;
 
     sysinfo(&sys);
 
+    if (dprop == nullptr)
+        return;
+
     if (sys.totalram > 3072ull * 1024 * 1024) {
         // from - phone-xxhdpi-4096-dalvik-heap.mk
-        heapstartsize = "16m";
-        heapgrowthlimit = "256m";
-        heapsize = "512m";
-        heapminfree = "4m";
-        heapmaxfree = "8m";
+        dprop->heapstartsize = "16m";
+        dprop->heapgrowthlimit = "256m";
+        dprop->heapsize = "512m";
+        dprop->heapminfree = "4m";
+        dprop->heapmaxfree = "8m";
     } else if (sys.totalram > 2048ull * 1024 * 1024) {
         // from - phone-xxhdpi-3072-dalvik-heap.mk
-        heapstartsize = "8m";
-        heapgrowthlimit = "288m";
-        heapsize = "768m";
-        heapminfree = "512k";
-	heapmaxfree = "8m";
+        dprop->heapstartsize = "8m";
+        dprop->heapgrowthlimit = "288m";
+        dprop->heapsize = "768m";
+        dprop->heapminfree = "512k";
+        dprop->heapmaxfree = "8m";
     } else {
         // from - phone-xxhdpi-2048-dalvik-heap.mk
-        heapstartsize = "16m";
-        heapgrowthlimit = "192m";
-        heapsize = "512m";
-        heapminfree = "2m";
-        heapmaxfree = "8m";
+        dprop->heapstartsize = "16m";
+        dprop->heapgrowthlimit = "192m";
+        dprop->heapsize = "512m";
+        dprop->heapminfree = "2m";
+        dprop->heapmaxfree = "8m";
    }
 }
 
@@ -84,4 +101,36 @@ void vendor_load_properties()
     android::init::property_set("dalvik.vm.heaptargetutilization", "0.75");
     android::init::property_set("dalvik.vm.heapminfree", heapminfree);
     android::init::property_set("dalvik.vm.heapmaxfree", heapmaxfree);
+=======
+static void init_target_properties() {
+    std::ifstream fin;
+    std::string buf;
+
+    std::string product = GetProperty("ro.product.name", "");
+    if (product.find("santoni") == std::string::npos)
+        return;
+
+    fin.open("/proc/cmdline");
+    while (std::getline(fin, buf, ' '))
+        if (buf.find("board_id") != std::string::npos)
+            break;
+    fin.close();
+
+    if (buf.find("S88536CA2") != std::string::npos) {
+        property_override("ro.product.model", "Redmi 4");
+    }
+}
+
+void vendor_load_properties() {
+    dalvikprop_t dprop;
+    check_device(&dprop);
+
+    property_set("dalvik.vm.heapstartsize", dprop.heapstartsize);
+    property_set("dalvik.vm.heapgrowthlimit", dprop.heapgrowthlimit);
+    property_set("dalvik.vm.heapsize", dprop.heapsize);
+    property_set("dalvik.vm.heaptargetutilization", "0.75");
+    property_set("dalvik.vm.heapminfree", dprop.heapminfree);
+    property_set("dalvik.vm.heapmaxfree", dprop.heapmaxfree);
+
+    init_target_properties();
 }
