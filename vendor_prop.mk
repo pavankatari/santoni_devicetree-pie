@@ -112,10 +112,6 @@ vendor.display.enable_default_color_mode=0 \
 vendor.display.rotator_downscale=1 \
 vendor.display.perf_hint_window=50 \
 vendor.gralloc.enable_fb_ubwc=1
-<<<<<<< HEAD
-
-=======
->>>>>>> b474e73... santoni: vendor_prop: add missing art properties and clean up
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
