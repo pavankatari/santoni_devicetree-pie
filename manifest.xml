@@ -83,11 +83,7 @@
             <name>IDrmFactory</name>
             <instance>default</instance>
         </interface>
-<<<<<<< HEAD
 	<fqname>@1.1::ICryptoFactory/clearkey</fqname>
-=======
-        <fqname>@1.1::ICryptoFactory/clearkey</fqname>
->>>>>>> 5c2a92e... santoni: move DRM HAL to v1.1 as required by Android P
         <fqname>@1.1::IDrmFactory/clearkey</fqname>
         <fqname>@1.1::ICryptoFactory/widevine</fqname>
         <fqname>@1.1::IDrmFactory/widevine</fqname>
