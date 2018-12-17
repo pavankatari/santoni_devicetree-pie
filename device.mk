@@ -319,15 +319,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
     android.hardware.power@1.0-service
-
-<<<<<<< HEAD
-=======
+    
 # OMNI
 PRODUCT_PACKAGES += \
     OmniDisplayManager
 
 # QTI
->>>>>>> a43d850... beryllium: add OmniDisplayManager
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:system/etc/etc/powerhint.xml
 
@@ -457,7 +454,7 @@ PRODUCT_COPY_FILES += \
 # Doze
 PRODUCT_PACKAGES += \
     XiaomiDoze
-=======
+
 # Xiaomi
 PRODUCT_PACKAGES += \
     XiaomiParts
