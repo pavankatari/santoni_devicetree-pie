@@ -14,24 +14,30 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/xiaomi/santoni/full_santoni.mk)
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
-# Inherit some common ArrowOS stuff.
-$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
+# CarrierConfig
+PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+$(call inherit-product, device/xiaomi/santoni/full_santoni.mk)
 
 PRODUCT_DEVICE := santoni
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4
-PRODUCT_NAME := bootleg_santoni
+PRODUCT_NAME := omni_santoni
 BOARD_VENDOR := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 
 # Build  Type
-BOOTLEGGERS_BUILD_TYPE := HomeMade@PavanKatari
+ROM_BUILDTYPE := HomeMade@PavanKatari
 DEVICE_MAINTAINERS="PavanKatari"
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bootleg.maintainer="pavankatari"
+    ro.omni.maintainer="pavankatari"
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

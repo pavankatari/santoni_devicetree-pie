@@ -1,0 +1,34 @@
+[
+ {
+    "repository": "android_kernel_xiaomi_santoni",
+    "target_path": "kernel/xiaomi/msm8937"
+ },
+ {
+    "repository": "android_vendor_xiaomi_santoni",
+    "target_path": "vendor/xiaomi"
+ },
+{
+    "remote": "omnirom",
+    "repository": "android_device_qcom_caf-sepolicy",
+    "target_path": "device/qcom/sepolicy",
+    "revision": "android-9.0"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_vendor_qcom_opensource_interfaces",
+    "target_path": "vendor/qcom/opensource/interfaces",
+    "revision": "android-9.0"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_vendor_qcom_opensource_commonsys",
+    "target_path": "vendor/qcom/opensource/commonsys",
+    "revision": "android-9.0"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_packages_apps_OmniDisplayManager",
+    "target_path": "packages/apps/OmniDisplayManager",
+    "revision": "android-9.0"
+  }
+]
