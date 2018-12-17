@@ -449,7 +449,7 @@ PRODUCT_COPY_FILES += \
 # Doze
 PRODUCT_PACKAGES += \
     XiaomiDoze
-=======
+
 # Xiaomi
 PRODUCT_PACKAGES += \
     XiaomiParts
