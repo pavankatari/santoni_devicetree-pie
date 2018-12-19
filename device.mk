@@ -143,6 +143,11 @@ PRODUCT_PACKAGES += \
     camera.msm8937 \
     Snap
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service.custom
+
+# Init scripts
 PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
