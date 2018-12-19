@@ -444,6 +444,9 @@ lib/hw/fingerprint.searchf.so:vendor/lib/hw/fingerprint.searchf.so|2abc0a9174a63
 lib/libcom_fingerprints_service.so:vendor/lib/libcom_fingerprints_service.so
 lib64/hw/fingerprint.searchf.so:vendor/lib64/hw/fingerprint.searchf.so|1eadef2c967ba29cbb29f8b95f7c721849605b2a
 lib64/hw/fingerprint.fpc.so:vendor/lib64/hw/fingerprint.fpc.so|28a7f4a29eb51c07956a9010bc037bb2a862e9d2
+lib/hw/fingerprint.default.so:vendor/lib/hw/fingerprint.msm8937.so
+lib/libcom_fingerprints_service.so:vendor/lib/libcom_fingerprints_service.so
+lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.msm8937.so
 lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.so
 lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so
 lib64/libcom_fingerprints_service.so:vendor/lib64/libcom_fingerprints_service.so
