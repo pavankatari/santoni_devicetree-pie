@@ -31,19 +31,13 @@
 #define __QCAMERA3HARDWAREINTERFACE_H__
 
 // System dependencies
-<<<<<<< HEAD
 #include <CameraMetadata.h>
-=======
 #include <camera/CameraMetadata.h>
->>>>>>> 4fa63bd... santoni: Revert "QCamera2: For supporting VNDK and Treble rules."
 #include <pthread.h>
 #include <utils/KeyedVector.h>
 #include <utils/List.h>
 #include <map>
-<<<<<<< HEAD
 
-=======
->>>>>>> 4fa63bd... santoni: Revert "QCamera2: For supporting VNDK and Treble rules."
 // Camera dependencies
 #include "hardware/camera3.h"
 #include "QCamera3Channel.h"
