@@ -63,8 +63,6 @@ using ::std::vector;
 
 /* ------------------------------ PUBLIC ------------------------------------ */
 HAL* HAL::makeIPAHAL(int version, IOffloadManager* mgr) {
-    android::hardware::ProcessState::initWithMmapSize((size_t)(2 * KERNEL_PAGE));
-
     if (DBG)
         ALOGI("makeIPAHAL(%d, %s)", version,
                 (mgr != nullptr) ? "provided" : "null");
@@ -90,7 +88,7 @@ void HAL::registerAsSystemService(const char* name) {
     status_t ret = 0;
 
     ret = IOffloadControl::registerAsService();
-    if (ret != 0) ALOGE("Failed to register IOffloadControl (%d) name(%s)", ret, name);
+    if (ret != 0) ALOGE("Failed to register IOffloadControl (%d)", ret);
     else if (DBG) {
         ALOGI("Successfully registered IOffloadControl");
     }
@@ -473,9 +471,6 @@ Return<void> HAL::setDataLimit
         fl.setResult(res.success, res.errMsg);
     } else {
         RET ipaReturn = mIPA->setQuota(upstream.c_str(), limit);
-        if(ipaReturn == RET::FAIL_TRY_AGAIN) {
-            ipaReturn = RET::SUCCESS;
-        }
         BoolResult res = ipaResultToBoolResult(ipaReturn);
         hidl_cb(res.success, res.errMsg);
         fl.setResult(res.success, res.errMsg);
